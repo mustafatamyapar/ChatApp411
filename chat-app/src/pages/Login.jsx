@@ -4,9 +4,10 @@ const Login = () => {
     return (
         <div className="formContainer">
       <div className="formWrapper">
+
         <span className="logo">HelloFromTheOtherSide</span>
-        <span className="title">Register</span>
-        <form onSubmit={handleSubmit}>
+        <span className="title">Login</span>
+        <form >
           <input required type="text" placeholder="display name" />
           <input required type="email" placeholder="email" />
           <input required type="password" placeholder="password" />
@@ -14,12 +15,10 @@ const Login = () => {
           <label htmlFor="file">
             <span>Add an avatar</span>
           </label>
-          <button disabled={loading}>Sign up</button>
-          {loading && "Uploading and compressing the image please wait..."}
-          {err && <span>Something went wrong</span>}
+          <button >Sign up</button>
         </form>
         <p>
-          You do have an account? <Link to="/register">Login</Link>
+          You do have an account? 
         </p>
       </div>
     </div>
