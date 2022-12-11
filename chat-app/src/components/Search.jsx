@@ -69,10 +69,12 @@ const Search = () => {
           [combinedId + ".date"]: serverTimestamp(),
         });
       }
-    } catch (err) {}
-
-    setUser(null);
-    setUsername("")
+    } catch (err) { 
+      setUser(null);
+      setUsername("");
+    }
+   
+   
   };
   return (
     <div className="search">

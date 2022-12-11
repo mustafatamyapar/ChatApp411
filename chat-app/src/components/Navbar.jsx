@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthContext'
 const Navbar = () => {
   const {currentUser} = useContext(AuthContext)
 
-  const mockName = currentUser.email.split('@')[0];
+  //const mockName = currentUser.email.split('@')[0];
 
 
 
@@ -14,7 +14,7 @@ const Navbar = () => {
     <div className='navbar'>
       <span className="logo">ChatIn</span>
       <div className="user">
-        <span>{mockName}</span>
+        <span></span>
         <button onClick={()=>signOut(auth)}>logout</button>
       </div>
     </div>
