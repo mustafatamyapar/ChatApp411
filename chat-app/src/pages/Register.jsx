@@ -1,22 +1,28 @@
 import React from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
-  const [err, setErr] = useState(false);
+  const navigate = useNavigate();
+
+
   const handleSubmit = async (e) => {
-    setLoading(true);
     e.preventDefault();
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
-    const file = e.target[3].files[0];
-    try{
-      const res = await createUserWithEmailAndPassword(auth, email, password)
-    }catch(err){
-      setErr(true);
-    }
+    const res = await createUserWithEmailAndPassword(auth, email, password);
 
+    await setDoc(doc(db, "users", res.user.uid), {
+      uid: res.user.uid,
+      displayName,
+      email,
+    });
+
+    await setDoc(doc(db, "userChats", res.user.uid), {});
+   navigate("/");
   }
 
     return (
@@ -28,11 +34,7 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <input required type="text" placeholder="display name" />
           <input required type="email" placeholder="email" />
-          <input required type="password" placeholder="password" />
-          <input required style={{ display: "none" }} type="file" id="file" />
-          <label htmlFor="file">
-            <span>Add an avatar</span>
-          </label>
+          <input required type="password" placeholder="password" /> 
           <button >Sign up</button>
         </form>
         <p>

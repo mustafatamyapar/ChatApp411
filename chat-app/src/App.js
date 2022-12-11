@@ -1,4 +1,3 @@
-
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -17,6 +16,14 @@ function App() {
 
     return children
   };
+
+  //const ProtectedRoute = ({ children }) => {
+  //  if (!currentUser) {
+ //     return <Navigate to="/login" />;
+ //   }
+
+  //  return children
+ // };
 
   return (
     <BrowserRouter>
