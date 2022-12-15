@@ -1,3 +1,15 @@
+For successfully run the application please follow these commands on terminal.
+
+# Get to the application's directory
+cd chat-app
+
+# Install node modules
+npm install create-react-app
+
+# Runs the application
+npm start.
+
+
 
 
 # Getting Started with Create React App
