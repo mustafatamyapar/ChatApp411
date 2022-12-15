@@ -7,7 +7,6 @@ import {
   setDoc,
   doc,
   updateDoc,
-  serverTimestamp,
   getDoc,
 } from "firebase/firestore";
 import { db } from "../firebase";
@@ -38,7 +37,6 @@ const Search = () => {
   };
 
   const handleSelect = async () => {
-    //check whether the group(chats in firestore) exists, if not create
     const combinedId =
       currentUser.uid > user.uid
         ? currentUser.uid + user.uid
@@ -50,14 +48,12 @@ const Search = () => {
         //create a chat in chats collection
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
-        //create user chatss
+        //create user chats!
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName
           }
-          ,
-          [combinedId + ".date"]: serverTimestamp(),
         });
 
         await updateDoc(doc(db, "userChats", user.uid), {
@@ -65,16 +61,15 @@ const Search = () => {
             uid: currentUser.uid,
             displayName: currentUser.displayName
           }
-          ,
-          [combinedId + ".date"]: serverTimestamp(),
+
         });
       }
     } catch (err) { 
-      setUser(null);
-      setUsername("");
+     
     }
    
-   
+    setUser(null);
+      setUsername("");
   };
   return (
     <div className="search">

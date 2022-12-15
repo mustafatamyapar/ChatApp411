@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import Img from "../img/img.png";
-import Attach from "../img/attach.png";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import {
@@ -12,8 +10,6 @@ import {
 } from "firebase/firestore";
 import { db} from "../firebase";
 import { v4 as uuid } from "uuid";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-
 const Input = () => {
   const [text, setText] = useState("");
 
@@ -27,6 +23,7 @@ const Input = () => {
           id: uuid(),
           text,
           senderId: currentUser.uid,
+          senderName: currentUser.displayName,
           date: Timestamp.now(),
         }),
       });
@@ -45,7 +42,6 @@ const Input = () => {
       },
       [data.chatId + ".date"]: serverTimestamp(),
     });
-
     setText("");
   };
   return (

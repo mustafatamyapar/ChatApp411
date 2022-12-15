@@ -13,7 +13,31 @@ const Register = () => {
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
+
+    if((password.length < 8 ))
+    {
+      console.log("NOOOOO")
+      
+    }
+    else if(!(/[0-9]+/.test(password)) )
+    {
+      console.log("NOOOOO")
+    }
+    else if(!(/[A-Z]+/.test(password)) )
+    {
+      console.log("NOOOOO")
+    }
+    else if(!(/[a-z]+/.test(password)) )
+    {
+      console.log("NOOOOO")
+    }
+    else
+    {
     const res = await createUserWithEmailAndPassword(auth, email, password);
+    
+    await updateProfile(res.user, {
+      displayName,
+    });
 
     await setDoc(doc(db, "users", res.user.uid), {
       uid: res.user.uid,
@@ -24,22 +48,29 @@ const Register = () => {
     await setDoc(doc(db, "userChats", res.user.uid), {});
    navigate("/");
   }
+  }
 
     return (
+
         <div className="formContainer">
       <div className="formWrapper">
-
-        <span className="logo">HelloFromTheOtherSide</span>
+      <img src={require('./ourLogo.jpg')}width="60" 
+     height="60"></img>
+        <span className="logo">ChatWill</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
           <input required type="text" placeholder="display name" />
           <input required type="email" placeholder="email" />
-          <input required type="password" placeholder="password" /> 
+          <input required type="password" minLength="8" placeholder="password" /> 
+          <div class="tooltip">i
+          <span class="tooltiptext">Password needs to include minimum 1 digit, 1 uppercase , 1 lowercase letter.</span>
+        </div>
           <button >Sign up</button>
         </form>
         <p>
           You do have an account? <Link to="/login">Login</Link>
         </p>
+   
       </div>
     </div>
     );
