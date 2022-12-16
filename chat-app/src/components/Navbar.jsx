@@ -8,6 +8,8 @@ const Navbar = () => {
 
   return (
     <div className='navbar'>
+          <img src={require('./ourLogo.jpg')}width="60" 
+     height="60"></img>
       <span className="logo">ChatWill</span>
       <div className="user">
       <span>{currentUser.displayName}</span>

@@ -169,8 +169,8 @@
       border: 1px solid white;
       border-radius: 10px;
       font-family: Helvetica, sans-serif;
-      width: 65%;
-      height: 80%;
+      width: 60%;
+      height: 90%;
       display: flex;
       overflow: hidden;
       @include tablet {
@@ -196,6 +196,7 @@
           .logo {
             font-weight: bold;
             font-family: Helvetica, sans-serif;
+            padding: 0px 70px 0px 0px;
             @include tablet {
               
               display: none;
@@ -257,6 +258,8 @@
           display: flex;
           align-items: center;
           font-family: Helvetica, sans-serif;
+          border-style: solid;
+          border-radius: 7px;
           gap: 10px;
           color: white;
           cursor: pointer;
@@ -280,6 +283,7 @@
               font-weight: 500;
               font-family: Helvetica, sans-serif;
               color: white;
+  
             }
             p {
               font-size: 14px;
@@ -303,6 +307,7 @@
           justify-content: space-between;
           padding: 10px;
           color: white;
+          font-size: 25px;
         }
   
         .chatIcons {
