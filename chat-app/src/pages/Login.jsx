@@ -26,16 +26,15 @@ const Login = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-      <img src={require('./ourLogo.jpg')}width="60" 
-     height="60"></img>
+      <img src={require('./ourLogo.jpg')}width="100" 
+     height="100"></img>
         <span className="logo">ChatWill</span>
-        <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="email" />
-          <input type="password" placeholder="password" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
           <button>Sign in</button>
         </form>
-        <p>You don't have an account? <Link to="/register">Register</Link></p>
+        <p>New here? <Link to="/register">Register</Link></p>
       </div>
     </div>
   );

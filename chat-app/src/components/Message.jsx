@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthC } from "../context/AuthC";
 
 const Message = ({ message }) => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthC);
 
   const ref = useRef();
 

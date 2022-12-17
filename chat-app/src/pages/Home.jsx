@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../components/Sidebar'
+import UsersTab from '../components/UsersTab'
 import Chat from '../components/Chat'
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
     <div className='home'>
       <div className="container">
       <Chat/>
-        <Sidebar/>
+        <UsersTab/>
        
       </div>
     </div>

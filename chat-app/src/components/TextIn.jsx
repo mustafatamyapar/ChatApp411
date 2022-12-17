@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { ChatContext } from "../context/ChatContext";
+import { AuthC } from "../context/AuthC";
+import { ChatC } from "../context/ChatC";
 import {
   arrayUnion,
   doc,
@@ -13,19 +13,26 @@ import { v4 as uuid } from "uuid";
 const Input = () => {
   const [text, setText] = useState("");
 
-  const { currentUser } = useContext(AuthContext);
-  const { data } = useContext(ChatContext);
+  const { currentUser } = useContext(AuthC);
+  const { data } = useContext(ChatC);
 
   const handleSend = async () => {
-    
-    //For the chats of the user
+
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({id: uuid(),text,senderId: currentUser.uid,senderName: currentUser.displayName,date: Timestamp.now(),}),});
 
-//For the userChats data table
+
     await updateDoc(doc(db, "userChats", currentUser.uid), {
       [data.chatId + ".lastMessage"]: {text,},[data.chatId + ".date"]: serverTimestamp(),});
-//For the userChats data table
+/*
+const tryToHandle = {
+  handleObject : [
+    {id: text,Id: currentUser.uid,senderName: "mock"},
+    {id: text,Id: currentUser.uid,senderName: "mock"}
+  ]
+}
+*/
+
     await updateDoc(doc(db, "userChats", data.user.uid), {
       [data.chatId + ".lastMessage"]: {text,},[data.chatId + ".date"]: serverTimestamp(),});
 

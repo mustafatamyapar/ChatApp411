@@ -1,16 +1,16 @@
  import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { AuthContextProvider } from "./context/AuthContext";
-import { ChatContextProvider } from "./context/ChatContext";
+import { AuthCProvider } from "./context/AuthC";
+import { ChatCProvider } from "./context/ChatC";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <AuthContextProvider>
-    <ChatContextProvider>
+  <AuthCProvider>
+    <ChatCProvider>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </ChatContextProvider>
-  </AuthContextProvider>
+    </ChatCProvider>
+  </AuthCProvider>
 );

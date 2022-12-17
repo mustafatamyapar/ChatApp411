@@ -54,21 +54,21 @@ const Register = () => {
 
         <div className="formContainer">
       <div className="formWrapper">
-      <img src={require('./ourLogo.jpg')}width="60" 
-     height="60"></img>
+      <img src={require('./ourLogo.jpg')}width="100" 
+     height="100"></img>
         <span className="logo">ChatWill</span>
-        <span className="title">Register</span>
+  
         <form onSubmit={handleSubmit}>
-          <input required type="text" placeholder="display name" />
-          <input required type="email" placeholder="email" />
-          <input required type="password" minLength="8" placeholder="password" /> 
+          <input required type="text" placeholder="What will be your name?" />
+          <input required type="email" placeholder="Email" />
+          <input required type="password" minLength="8" placeholder="Password" /> 
           <div class="tooltip">i
           <span class="tooltiptext">Password needs to include minimum 1 digit, 1 uppercase , 1 lowercase letter.</span>
         </div>
           <button >Sign up</button>
         </form>
         <p>
-          You do have an account? <Link to="/login">Login</Link>
+          If you have an account <Link to="/login">Login</Link>
         </p>
    
       </div>

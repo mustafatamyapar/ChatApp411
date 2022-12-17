@@ -1,11 +1,11 @@
 
 import React, { useContext } from "react";
-import Messages from "./Messages";
-import Input from "./Input";
-import { ChatContext } from "../context/ChatContext";
+import Messages from "./AllMessages";
+import Input from "./TextIn";
+import { ChatC } from "../context/ChatC";
 
 const Chat = () => {
-  const { data } = useContext(ChatContext);
+  const { data } = useContext(ChatC);
 
   return (
     <div className="chat">

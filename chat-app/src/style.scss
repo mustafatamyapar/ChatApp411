@@ -17,7 +17,6 @@
   $font-stack: Helvetica, sans-serif;
 
   .formContainer {
-    background-color: #B1D0E0;
     font-family: Helvetica, sans-serif;
     height: 100vh;
     display: flex;
@@ -117,7 +116,8 @@
           border: none;
           font-family: Helvetica, sans-serif;
           width: 250px;
-          border-bottom: 1px solid #B1D0E0;
+          border: 1px solid #B1D0E0;
+          border-radius: 10px;
           &::placeholder {
             color: rgb(175, 175, 175);
           }
@@ -131,6 +131,10 @@
           font-weight: bold;
           border: none;
           cursor: pointer;
+          border-radius: 100px;
+          width: 100px;
+          cursor: pointer;
+          margin-inline: auto;
         }
   
         label {
@@ -222,6 +226,7 @@
               color: #ffffff;
               font-size: 10px;
               border: none;
+              border-radius: 20px;
               font-family: Helvetica, sans-serif;
               cursor: pointer;
               @include tablet {

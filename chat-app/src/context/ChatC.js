@@ -3,12 +3,12 @@ import {
   useContext,
   useReducer,
 } from "react";
-import { AuthContext } from "./AuthContext";
+import { AuthC } from "./AuthC";
 
-export const ChatContext = createContext();
+export const ChatC = createContext();
 
-export const ChatContextProvider = ({ children }) => {
-  const { currentUser } = useContext(AuthContext);
+export const ChatCProvider = ({ children }) => {
+  const { currentUser } = useContext(AuthC);
   const INITIAL_STATE = {
     chatId: "null",
     user: {},
@@ -33,8 +33,8 @@ export const ChatContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(chatReducer, INITIAL_STATE);
 
   return (
-    <ChatContext.Provider value={{ data:state, dispatch }}>
+    <ChatC.Provider value={{ data:state, dispatch }}>
       {children}
-    </ChatContext.Provider>
+    </ChatC.Provider>
   );
 };
